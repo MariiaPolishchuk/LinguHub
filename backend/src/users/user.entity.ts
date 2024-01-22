@@ -3,8 +3,8 @@ import * as bcrypt from 'bcrypt';
 
 @Entity()
 export class User {
-  constructor(username: string, email: string, password: string) {
-    this.username = username;
+  constructor(name: string, email: string, password: string) {
+    this.name = name;
     this.email = email;
     this.password = password;
   }
@@ -13,10 +13,10 @@ export class User {
   id: number;
 
   @Column()
-  username: string;
+  email: string;
 
   @Column()
-  email: string;
+  name: string;  
 
   @Column()
   password: string;
