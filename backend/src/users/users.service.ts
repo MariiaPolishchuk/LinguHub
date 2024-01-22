@@ -13,13 +13,13 @@ export class UsersService {
   ) {}
 
   async create(registerUserDto: RegisterUserDto): Promise<User> {
-    const { username, email, password } = registerUserDto;
+    const { name, email, password } = registerUserDto;
 
-    const userExists = await this.findByUsername(username);
+    const userExists = await this.findByEmail(email);
 
     if (userExists) {
       throw new HttpException(
-        'User with that username already exists',
+        'Account with the email already exists.',
         HttpStatus.OK,
       );
     }
@@ -27,13 +27,13 @@ export class UsersService {
     const salt = await bcrypt.genSalt();
     const hashedPassword = await bcrypt.hash(password, salt);
 
-    const user = new User(username, email, hashedPassword);
+    const user = new User(name, email, hashedPassword);
 
     return this.userRepository.save(user);
   }
 
-  async findByUsername(username: string): Promise<User> {
-    return this.userRepository.findOne({ where: { username } });
+  async findByEmail(email: string): Promise<User> {
+    return this.userRepository.findOne({ where: { email } });
   }
 
   async findOne(id: number): Promise<User> {
