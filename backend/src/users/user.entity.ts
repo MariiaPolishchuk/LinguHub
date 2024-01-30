@@ -1,6 +1,7 @@
 import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm';
 import { Exclude } from 'class-transformer';
 import * as bcrypt from 'bcrypt';
+import { Role } from 'src/common/enums/role.enum';
 
 @Entity()
 export class User {
@@ -21,6 +22,14 @@ export class User {
 
   @Column()
   password: string;
+
+  @Column({
+    type: 'enum',
+    enum: Role,
+    array: true,
+    default: [Role.USER],
+  })
+  roles: Role[];
 
   @Column({ nullable: true })
   @Exclude()
