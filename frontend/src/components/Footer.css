@@ -1,0 +1,74 @@
+
+footer {
+  display: flex;
+  flex-direction: column;
+  padding: 20px; 
+  margin-top: auto; /* прижатие к низу страницы */
+  margin: 0;
+  padding: 0;
+}
+
+/* .footer-separator {
+    position: relative;
+    width: 1116px;
+    margin-left: 61px;
+    border-radius: 0px;
+    border: solid #062c369e;
+    box-shadow: 1px 0px 13px 5px #083643c4;
+    top: 2px;
+  }
+  
+  @media (max-width: 1280px) {
+    .footer-separator {
+      width: 100%;
+      margin-left: 0;
+    }
+  } */
+
+.footer-contacts {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px
+}
+
+.footer-contacts-info-contact {
+  display: flex;
+  gap: 10px; 
+}
+
+.footer-img {
+  width: 30px; 
+  height: 30px; 
+}
+
+.footer-company {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 19px;
+  text-align: right;
+  color: #072c36;
+  text-shadow: 1px 2px #24a6a9;
+}
+
+
+@media (max-width: 768px) {
+  footer {
+    padding: 15px; 
+    flex-direction: column;
+  }
+
+  .footer-img {
+    width: 20px; 
+    height: 20px; 
+  }
+
+  .footer-contacts {
+    flex-direction: column;
+  }
+  .footer-contacts-info-contact {
+    gap: 10px; 
+    flex-direction: column;
+  }
+}

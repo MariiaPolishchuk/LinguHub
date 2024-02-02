@@ -12,6 +12,12 @@ body {
   padding-top: 112px;
 }
 
+.root {
+  font-family: "Barlow Condensed", sans-serif;
+  color: #0f3131;
+  padding: 0 20px;
+}
+
 .header {
   transition: all 0.3s ease;
 }
@@ -48,10 +54,12 @@ nav ul {
   display: inline-flex;
   list-style: none;
   gap: 2rem;
+  margin: 0;
 }
 
 .sign {
   display: flex;
+  gap: 20px;
 }
 
 nav a {
@@ -62,7 +70,7 @@ nav a {
 }
 
 nav a:hover {
-  color: #18282a;
+  color: #1c8290;
   text-shadow: 1px 6.5px 5px #083643;
   /* transition: ease-in-out 5ms; */
   /* transform: translate(0px); */
@@ -107,7 +115,7 @@ nav a:hover {
     justify-content: space-between;
   }
 
-  nav ul  {
+  nav ul {
     flex-direction: column;
     position: absolute;
     top: 100%;
@@ -131,6 +139,11 @@ nav a:hover {
     background: hsla(0 0% 0% / 0.2);
   }
 
+  .sign {
+    flex-direction: column;
+    gap: 0;
+  }
+
   .hamburger {
     display: block;
     padding: 0 30px;
@@ -139,6 +152,7 @@ nav a:hover {
 
   #nav-ul.toggle {
     display: flex;
+    gap: 0;
   }
 
   nav.visible {
@@ -218,9 +232,19 @@ h1 {
 }
 
 h2 {
-  font-size: xx-large;
-  text-shadow: 1px 1px 7px #cce7e8;
-  color: #0f3131;
+  text-shadow: 1px 0px 3px #0e2d2d;
+  text-align: center;
+  border-radius: 10px;
+  padding: 20px;
+  color: #cce7e8 !important;
+  box-shadow: 1px 1px 20px #154746;
+  margin-top: 30px !important;
+  background-image: url(../images/font.PNG);
+}
+
+.theme-start {
+  text-align: center;
+  padding: 20px;
 }
 
 li {
@@ -233,7 +257,7 @@ a {
 }
 
 label {
-  margin-bottom: 10px;
+  margin-top: 10px;
 }
 
 input {
@@ -254,9 +278,13 @@ input {
 /* level */
 .course-levels {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+
+.choose-level {
+  width: 380px;
 }
 
 .course-levels-list {
@@ -265,7 +293,9 @@ input {
   gap: 10px;
   justify-content: center;
   font-weight: 700;
-  font-size: x-large;
+  font-size: xx-large;
+  width: 380px;
+  height: 380px;
   color: #fff;
   text-shadow: 1px 0px 3px #18282a;
   padding: 30px;
@@ -275,7 +305,7 @@ input {
   box-shadow: 1px 1px 20px #0a3839;
   background: hsla(0 0% 0% / 0.1);
   backdrop-filter: blur(10px);
-  margin: 60px 50px;
+  margin: 10px;
 }
 
 .course-levels-list-item a {
@@ -305,7 +335,6 @@ input {
   justify-content: center;
   font-weight: 700;
   font-size: x-large;
-  color: #fff;
   text-shadow: 1px 0px 3px #18282a;
   padding: 30px;
   border-radius: 10px;
@@ -314,12 +343,12 @@ input {
   box-shadow: 1px 1px 20px #0a3839;
   background: hsla(0 0% 0% / 0.1);
   backdrop-filter: blur(10px);
-  margin: 60px 50px;
+  /* margin: 60px 50px; */
 }
 
 .course-themes-li a {
-  color: #b3dcdd;
-  text-shadow: 1px 0px 3px #0e2d2d;
+  color: #0a3839;
+  text-shadow: 1px 0px 3px #c6d2d2;
   text-decoration: none;
 }
 
@@ -335,4 +364,8 @@ input {
   padding: 10px;
   color: #cce7e8;
   box-shadow: 1px 1px 20px #154746;
+}
+
+.topic-details {
+  text-align: center;
 }

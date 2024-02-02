@@ -24,26 +24,84 @@
 
 
 
+// import React from 'react';
+// import { useParams, Link, Routes, Route } from 'react-router-dom';
+
+
+
+
+// const themesData = {
+//   beginner: [
+//     { id: 'beginner-topic1', title: 'MyFascinatingMorning' },
+//     { id: 'beginner-topic2', title: 'DailyRoutine' },
+//     { id: 'beginner-topic3', title: 'JobInterview' },
+//   ],
+//   intermediate: [
+//     { id: 'intermediate-topic1', title: 'MyFascinatingMorning' },
+//     { id: 'intermediate-topic2', title: 'DailyRoutine' },
+//     { id: 'intermediate-topic3', title: 'Mood' },
+//     { id: 'intermediate-topic4', title: 'JobInterview' },
+//   ],
+//   advanced: [
+//     { id: 'advanced-topic1', title: 'DailyRoutine' },
+//     { id: 'advanced-topic2', title: 'Тема 2' },
+//     { id: 'advanced-topic3', title: 'Тема 3' },
+//   ],
+// };
+
+// const CourseThemes = () => {
+//   const { levelId } = useParams();
+//   const themes = themesData[levelId] || [];
+
+//   return (
+//     <div className='course-themes'>
+//       <h2>Find your fav {levelId}-topic to start!</h2>
+//       <ul className='fade-in course-themes-list'>
+//         {themes.map(theme => (
+//           <li className='course-themes-li' key={theme.id}>
+//             <Link to={`/course/${levelId}/${theme.id}`}>{theme.title}</Link>
+
+//           </li>
+//         ))}
+//       </ul>
+//     </div>
+//   );
+// }
+
+// export default CourseThemes;
+
+
 import React from 'react';
-import { useParams, Link, Route, Routes } from 'react-router-dom';
+import { useParams, Link, Routes, Route } from 'react-router-dom';
 import ThemeDetails from './ThemeDetails';
+import TasksPage from './TasksPage';
 
 const themesData = {
-  beginner: [
-    { id: 'beginner-topic1', title: 'Тема 1', description: 'Описание темы 1 для уровня beginner' },
-    { id: 'beginner-topic2', title: 'Тема 2', description: 'Описание темы 2 для уровня beginner' },
-    { id: 'beginner-topic3', title: 'Тема 3', description: 'Описание темы 3 для уровня beginner' },
-  ],
+  beginner: [],
   intermediate: [
-    { id: 'intermediate-topic1', title: 'Тема 1', description: 'Описание темы 1 для уровня intermediate' },
-    { id: 'intermediate-topic2', title: 'Тема 2', description: 'Описание темы 2 для уровня intermediate' },
-    { id: 'intermediate-topic3', title: 'Тема 3', description: 'Описание темы 3 для уровня intermediate' },
+    {
+      id: 'intermediate-topic1',
+      title: 'My Fascinating Morning',
+      lessons: [
+        { id: 'my-fascinating-morning', title: 'My Fascinating Morning' }
+      ],
+    },
+    {
+      id: 'intermediate-topic2',
+      title: 'My Daily Routine',
+      lessons: [
+        { id: 'my-daily-routine', title: 'My Daily Routine' }
+      ]
+    },
+    {
+      id: 'intermediate-topic3',
+      title: 'Job Interview',
+      lessons: [
+        { id: 'job-interview', title: 'Job Interview' }
+      ]
+    }
   ],
-  advanced: [
-    { id: 'advanced-topic1', title: 'Тема 1', description: 'Описание темы 1 для уровня advanced' },
-    { id: 'advanced-topic2', title: 'Тема 2', description: 'Описание темы 2 для уровня advanced' },
-    { id: 'advanced-topic3', title: 'Тема 3', description: 'Описание темы 3 для уровня advanced' },
-  ],
+  advanced: [],
 };
 
 const CourseThemes = () => {
@@ -56,22 +114,23 @@ const CourseThemes = () => {
       <ul className='fade-in course-themes-list'>
         {themes.map(theme => (
           <li className='course-themes-li' key={theme.id}>
-            <Link to={`${theme.id}`}>{theme.title}</Link>
+            <Link to={`/course/${levelId}/${theme.id}`}>{theme.title}</Link>
           </li>
         ))}
       </ul>
 
       <Routes>
+        <Route path=":themeId" element={<ThemeDetails />} />
         {themes.map(theme => (
           <Route
             key={theme.id}
-            path={`${theme.id}/*`}
-            element={<ThemeDetails theme={theme} />}
+            path={`${theme.id}/:lessonId`}
+            element={<TasksPage />}
           />
         ))}
       </Routes>
     </div>
   );
-}
+};
 
 export default CourseThemes;

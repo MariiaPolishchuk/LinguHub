@@ -16,6 +16,7 @@ export default class Home extends Component {
   componentDidMount() {
     UserService.getPublicContent().then(
       response => {
+
         this.setState({
           content: response.data
         });
@@ -33,13 +34,10 @@ export default class Home extends Component {
 
   render() {
     return (
-      <div className="container">
-        <header className="jumbotron">
+      <div className="fade in">
         <h1>Enjoy your interactive Learning!</h1>
-          <h3>{this.state.content}</h3>
-  
-//       <p>Choose your Leson!</p>
-        </header>
+        <h3>{this.state.content}</h3>
+        <p>Choose your Leson!</p>
       </div>
     );
   }

@@ -85,23 +85,17 @@ class Login extends Component {
     return (
       <div>
         <div className="start-form log fade-in">
-          {/* <img
-            src="//ssl.gstatic.com/accounts/ui/avatar_2x.png"
-            alt="profile-img"
-            className="profile-img-card"
-          /> */}
-
+          <h1>Log in to start!</h1>
           <Form
             onSubmit={this.handleLogin}
             ref={c => {
               this.form = c;
             }}
           >
-            <div className="form-group">
+            <div>
               <label htmlFor="username">Username</label>
               <Input
                 type="text"
-                className="form-control"
                 name="username"
                 value={this.state.username}
                 onChange={this.onChangeUsername}
@@ -109,11 +103,10 @@ class Login extends Component {
               />
             </div>
 
-            <div className="form-group">
+            <div>
               <label htmlFor="password">Password</label>
               <Input
                 type="password"
-                className="form-control"
                 name="password"
                 value={this.state.password}
                 onChange={this.onChangePassword}
@@ -127,14 +120,14 @@ class Login extends Component {
                 disabled={this.state.loading}
               >
                 {this.state.loading && (
-                  <span className="spinner-border spinner-border-sm"></span>
+                  <span></span>
                 )}
                 <span>Login</span>
               </button>
             </div>
 
             {this.state.message && (
-              <div className="form-group">
+              <div>
                 <div className="alert alert-danger" role="alert">
                   {this.state.message}
                 </div>

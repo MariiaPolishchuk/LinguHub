@@ -28,10 +28,10 @@ export default class Profile extends Component {
     const { currentUser } = this.state;
 
     return (
-      <div className="container">
+      <div>
         {(this.state.userReady) ?
         <div>
-        <header className="jumbotron">
+        <header className="header-container">
           <h3>
             <strong>{currentUser.username}</strong> Profile
           </h3>

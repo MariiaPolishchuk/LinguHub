@@ -28,11 +28,11 @@ import CourseThemes from './CourseThemes';
 const CourseLevels = () => {
   return (
     <div className='course-levels'>
-      <h2>Choose your Level</h2>
+      <h2 className='choose-level'>Choose your Level</h2>
       <ul className='fade-in course-levels-list'>
-        <li className='course-levels-list-item'><Link to="beginner">Beginner</Link></li>
-        <li className='course-levels-list-item'><Link to="intermediate">Intermediate</Link></li>
-        <li className='course-levels-list-item'><Link to="advanced">Advanced</Link></li>
+        <li className='course-levels-list-item'><Link to="/course/beginner">Beginner</Link></li>
+        <li className='course-levels-list-item'><Link to="/course/intermediate">Intermediate</Link></li>
+        <li className='course-levels-list-item'><Link to="/course/advanced">Advanced</Link></li>
       </ul>
 
       <Routes>

@@ -124,6 +124,8 @@ const Header = ({ user, onLogout, showModeratorBoard, showAdminBoard }) => {
     nav.classList.toggle('toggle');
   };
 
+  
+
   return (
     <header className={`header ${scrolling ? 'out' : ''}`} role="banner">
       <div className="header-container fade-in">
@@ -210,7 +212,110 @@ export default Header;
 
 
 
+// import React, { useEffect, useState, useRef } from 'react';
+// import { Link } from 'react-router-dom';
 
+// const Header = ({ user, onLogout, showModeratorBoard, showAdminBoard }) => {
+//   const [scrolling, setScrolling] = useState(false);
+//   const [isMenuOpen, setMenuOpen] = useState(false);
+//   const navRef = useRef(null);
 
+//   useEffect(() => {
+//     const handleScroll = () => {
+//       setScrolling(window.scrollY > 100);
+//     };
 
+//     const handleOutsideClick = (event) => {
+//       if (navRef.current && !navRef.current.contains(event.target)) {
+//         setMenuOpen(false);
+//       }
+//     };
 
+//     window.addEventListener('scroll', handleScroll);
+//     document.addEventListener('click', handleOutsideClick);
+
+//     return () => {
+//       window.removeEventListener('scroll', handleScroll);
+//       document.removeEventListener('click', handleOutsideClick);
+//     };
+//   }, []);
+
+//   const handleBurgerClick = () => {
+//     setMenuOpen((prev) => !prev);
+//   };
+
+//   return (
+//     <header className={`header ${scrolling ? 'out' : ''}`} role="banner">
+//       <div className="header-container fade-in">
+//         <Link to="/home" className="logo">
+//           <img src="/img/IMG_9127.PNG" className="logo-icon" alt="Logo" />
+//         </Link>
+
+//         <nav id='nav' ref={navRef} className={isMenuOpen ? 'open' : ''}>
+//           <ul id="nav-ul">
+//             <li>
+//               <Link to="/course" onClick={() => setMenuOpen(false)}>Content</Link>
+//             </li>
+//             <li>
+//               <Link to="/free-lesson" onClick={() => setMenuOpen(false)}>Trial</Link>
+//             </li>
+//             {showModeratorBoard && (
+//               <li>
+//                 <Link to="/mod" onClick={() => setMenuOpen(false)}>
+//                   Moderator Board
+//                 </Link>
+//               </li>
+//             )}
+//             {showAdminBoard && (
+//               <li>
+//                 <Link to="/admin" onClick={() => setMenuOpen(false)}>
+//                   Admin Board
+//                 </Link>
+//               </li>
+//             )}
+//             {user && (
+//               <li>
+//                 <Link to="/user" onClick={() => setMenuOpen(false)}>
+//                   User
+//                 </Link>
+//               </li>
+//             )}
+//             {user ? (
+//               <div className='sign'>
+//                 <li>
+//                   <Link to="/profile" onClick={() => setMenuOpen(false)}>
+//                     {user.username}
+//                   </Link>
+//                 </li>
+//                 <li>
+//                   <a href="/" onClick={onLogout}>
+//                     LogOut
+//                   </a>
+//                 </li>
+//               </div>
+//             ) : (
+//               <div className='sign'>
+//                 <li>
+//                   <Link to="/login" onClick={() => setMenuOpen(false)}>
+//                     Login
+//                   </Link>
+//                 </li>
+//                 <li>
+//                   <Link to="/register" onClick={() => setMenuOpen(false)}>
+//                     Sign Up
+//                   </Link>
+//                 </li>
+//               </div>
+//             )}
+//           </ul>
+//           </nav>
+
+//         <span className="hamburger" id="button" onClick={handleBurgerClick}>
+//           <i className="fa fa-bars"></i>
+//         </span>
+//       </div>
+//     </header>
+//   );
+// };
+
+// export default Header;

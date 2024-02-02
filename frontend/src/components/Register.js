@@ -124,6 +124,7 @@ export default class Register extends Component {
     return (
       <div className="fade-in">
         <div className="start-form">
+        <h1>Start your fascinating learning!</h1>
           <Form
             onSubmit={this.handleRegister}
             ref={c => {

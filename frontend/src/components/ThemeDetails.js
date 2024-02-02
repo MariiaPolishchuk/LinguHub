@@ -6,7 +6,7 @@
 // const ThemeDetails = () => {
 //   const { levelId, themeId } = useParams();
 
-//   // Мы могли бы загрузить описание темы из API здесь
+//   // описание темы из API здесь
 
 //   return (
 //     <div>
@@ -18,38 +18,61 @@
 // }
 
 
+
+// import React from 'react';
+// import { useParams, Link } from 'react-router-dom';
+
+// const themesData = {
+//   beginner: [
+    
+     
+    
+//   ],
+//   intermediate: [
+//     { 
+//       id: 'intermediate-topic1',
+//       title: 'My Fascinating Morning',
+//       description: 'This lesson is...',
+//       lessonPath: '/lessons/my-fascinating-morning',
+//     },
+//   ],
+//   advanced: [
+   
+//   ],
+// };
+
+// const ThemeDetails = () => {
+//   const { levelId, themeId } = useParams();
+//   const theme = themesData[levelId]?.find(t => t.id === themeId) || {};
+
+//   return (
+//     <div className='topic-details fade-in'>
+//       <h2>{theme.title}</h2>
+//       <p>{theme.description}</p>
+//       <Link to={theme.lessonPath}>
+//         <button className='button'>Start</button>
+//       </Link>
+//     </div>
+//   );
+// }
+
+// export default ThemeDetails;
+
+
 import React from 'react';
 import { useParams, Link } from 'react-router-dom';
-import TasksPage from './TasksPage';
 
 const themesData = {
-  beginner: [
-    { 
-      id: 'beginner-topic1',
-      title: 'Тема 1',
-      description: 'Описание темы 1 для уровня beginner',
-      tasksPath: '/beginner/beginner-topic1/tasks',
-    },
-  
-  ],
+  beginner: [],
   intermediate: [
     { 
       id: 'intermediate-topic1',
-      title: 'Тема 1',
-      description: 'Описание темы 1 для уровня intermediate',
-      tasksPath: '/intermediate/intermediate-topic1/tasks',
+      title: 'My Fascinating Morning',
+      description: 'This lesson is...',
+      lessonPath: '/course/intermediate/intermediate-topic1/my-fascinating-morning',
     },
-
   ],
-  advanced: [
-    { 
-      id: 'advanced-topic1',
-      title: 'Тема 1',
-      description: 'Описание темы 1 для уровня advanced',
-      tasksPath: '/advanced/advanced-topic1/tasks',
-    },
-
-  ],
+  advanced: [],
 };
 
 const ThemeDetails = () => {
@@ -57,15 +80,14 @@ const ThemeDetails = () => {
   const theme = themesData[levelId]?.find(t => t.id === themeId) || {};
 
   return (
-    <div className='fade-in'>
+    <div className='topic-details fade-in'>
       <h2>{theme.title}</h2>
       <p>{theme.description}</p>
-      <Link to={theme.tasksPath}>
-        <button>Начать урок</button>
+      <Link to={theme.lessonPath}>
+        <button className='button'>Start</button>
       </Link>
     </div>
   );
 }
 
 export default ThemeDetails;
-
