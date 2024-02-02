@@ -14,7 +14,7 @@ export default class Home extends Component {
   }
 
   componentDidMount() {
-    UserService.getPublicContent().then(
+    /* UserService.getPublicContent().then(
       response => {
 
         this.setState({
@@ -29,7 +29,7 @@ export default class Home extends Component {
             error.toString()
         });
       }
-    );
+    ); */
   }
 
   render() {
